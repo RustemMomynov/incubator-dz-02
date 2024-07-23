@@ -1,4 +1,3 @@
-import React from "react";
 import { AffairType } from "../../HW2";
 import s from "./Affair.module.css";
 import s2 from "../Affairs.module.css";
@@ -32,7 +31,7 @@ function Affair(props: AffairPropsType) {
         className={buttonClass}
         onClick={deleteCallback}
       >
-        {/*текст кнопки могут изменить студенты*/}X{/**/}
+        {/*текст кнопки могут изменитьстуденты*/}X{/**/}
       </button>
     </div>
   );
