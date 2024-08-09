@@ -20,7 +20,7 @@ export const message0: MessageType = {
   id: 0,
   user: {
     avatar: avatar, // можно менять
-    name: "Some Name", // можно менять
+    name: "Billy", // можно менять
   },
   message: {
     text: "some textsome textsome textsome textsome textsome textsome text", // можно менять
@@ -46,13 +46,14 @@ const HW1 = () => {
       <div className={s2.hwTitle}>Homework #1</div>
       <div className={s2.hw}>
         {/*проверка отображения (не менять)*/}
-        <div>
+        <div className={s2.messagesBlock}>
           <Message message={message0} />
           <FriendMessage message={friendMessage0} />
         </div>
 
         {/*для автоматической проверки дз (не менять)*/}
         <MessageSender M={Message} />
+        <hr style={{ margin: "50px 0" }} />
       </div>
     </div>
   );

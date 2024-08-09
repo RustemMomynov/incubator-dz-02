@@ -59,6 +59,7 @@ function HW2() {
           deleteAffairCallback={deleteAffairCallback}
           filter={filter}
         />
+        <hr style={{ margin: "50px 0" }} />
       </div>
     </div>
   );

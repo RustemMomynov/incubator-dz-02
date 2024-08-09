@@ -1,18 +1,28 @@
 .sendForm {
-
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .textarea {
-
+  width: 1200px;
+  height: 40px !important;
+  resize: none;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: rgba(130, 111, 206, 0.471);
+  border: none;
 }
 
 .button {
-
+  width: 150px;
+  height: 40px !important;
+  resize: none;
+  border-radius: 40px;
+  border: none;
 }
 
 .button:hover {
-
 }
 .button:active {
-
 }

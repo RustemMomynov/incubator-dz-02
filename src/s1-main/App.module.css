@@ -8,9 +8,17 @@
 }
 
 .hw {
+  width: 100%;
+  margin: 100px 0;
 }
 
 .hwTitle {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.messagesBlock {
+  display: flex;
+  flex-direction: column;
 }

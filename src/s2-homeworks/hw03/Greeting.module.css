@@ -2,6 +2,21 @@
 }
 
 .inputAndButtonContainer {
+  width: 400px;
+
+  input {
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+  }
+
+  button {
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+  }
 }
 
 .error {
@@ -29,6 +44,7 @@
 }
 
 .text {
+  color: gray;
 }
 
 .greeting {

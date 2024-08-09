@@ -1,24 +1,45 @@
 .sidebar {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  width: 250px;
 }
 
 .sidebar.open {
+  display: block;
 }
 
 .background {
 }
 
 .nav {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav a + a {
 }
 
 .nav a:hover {
 }
 
 .nav a.active {
+  color: red;
 }
+
 .close {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .close img {

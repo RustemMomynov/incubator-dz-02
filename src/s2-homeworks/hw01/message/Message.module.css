@@ -1,6 +1,8 @@
 .message {
   max-width: 100%;
   display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 
   margin: 5px;
   padding: 5px 20px;
@@ -46,4 +48,9 @@
 }
 
 .time {
+  display: flex;
+  flex-direction: row-reverse;
+
+  /* width: 50px; */
+  text-align: center;
 }
