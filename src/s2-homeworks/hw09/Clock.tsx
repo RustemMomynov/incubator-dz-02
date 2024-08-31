@@ -27,7 +27,11 @@ function Clock() {
   const onMouseLeave = () => setShow(false);
 
   const stringTime = date.toLocaleTimeString("en-GB"); // часы24:минуты:секунды
-  const stringDate = date.toLocaleDateString("en-GB"); // день.месяц.год
+  const stringDate = date.toLocaleDateString("ru-RU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }); // день.месяц.год
   const stringDay = date.toLocaleDateString("en-US", { weekday: "long" }); // день недели
   const stringMonth = date.toLocaleDateString("en-US", { month: "long" }); // месяц
 
