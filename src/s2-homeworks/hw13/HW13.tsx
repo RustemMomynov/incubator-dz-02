@@ -34,10 +34,16 @@ const HW13 = () => {
       .then((res) => {
         setCode("Код 200!");
         setImage(success200);
-        setText(res.data.errorText);
+        setInfo(res.data.info);
       })
       .catch((e) => {
+        if (e.message === "Network Error") {
+          setInfo("Error");
+        } else {
+          setInfo("");
+        }
         setCode(`Код ${e.response.status}`);
+        setText(e.response.data.errorText);
         switch (e.response.status) {
           case 400: {
             setImage(error400);
@@ -48,10 +54,6 @@ const HW13 = () => {
             break;
           }
         }
-        setText(e.message);
-      })
-      .finally(() => {
-        setInfo("");
       });
   };
 
@@ -65,7 +67,7 @@ const HW13 = () => {
             id={"hw13-send-true"}
             onClick={send(true)}
             xType={"secondary"}
-            disabled={info ? true : false}
+            disabled={info === "...loading" ? true : false}
           >
             Send true
           </SuperButton>
@@ -73,7 +75,7 @@ const HW13 = () => {
             id={"hw13-send-false"}
             onClick={send(false)}
             xType={"secondary"}
-            disabled={info ? true : false}
+            disabled={info === "...loading" ? true : false}
           >
             Send false
           </SuperButton>
@@ -81,7 +83,7 @@ const HW13 = () => {
             id={"hw13-send-undefined"}
             onClick={send(undefined)}
             xType={"secondary"}
-            disabled={info ? true : false}
+            disabled={info === "...loading" ? true : false}
           >
             Send undefined
           </SuperButton>
@@ -89,7 +91,7 @@ const HW13 = () => {
             id={"hw13-send-null"}
             onClick={send(null)} // имитация запроса на не корректный адрес
             xType={"secondary"}
-            disabled={info ? true : false}
+            disabled={info === "...loading" ? true : false}
           >
             Send null
           </SuperButton>
