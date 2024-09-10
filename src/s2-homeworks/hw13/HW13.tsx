@@ -32,18 +32,23 @@ const HW13 = () => {
     axios
       .post(url, { success: x })
       .then((res) => {
+        console.log(res.data);
         setCode("Код 200!");
         setImage(success200);
         setInfo(res.data.info);
+        setText(res.data.errorText);
       })
       .catch((e) => {
+        console.log(e);
         if (e.message === "Network Error") {
           setInfo("Error");
         } else {
-          setInfo("");
+          setInfo(e.response.data.info);
+          setText(e.response.data.errorText);
         }
+        console.log(e.message);
         setCode(`Код ${e.response.status}`);
-        setText(e.response.data.errorText);
+
         switch (e.response.status) {
           case 400: {
             setImage(error400);
