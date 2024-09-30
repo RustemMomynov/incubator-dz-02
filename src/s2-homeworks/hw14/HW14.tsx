@@ -59,7 +59,7 @@ const HW14 = () => {
   ));
 
   return (
-    <div id={"hw14"} style={{ width: "600px", margin: "0 auto" }}>
+    <div id={"hw14"} style={{ width: "500px", margin: "0 auto" }}>
       <div className={s2.hwTitle}>Homework #14</div>
 
       <div className={s2.hw}>
