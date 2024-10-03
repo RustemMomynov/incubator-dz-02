@@ -25,8 +25,6 @@ const HW12 = () => {
 
   const dispatch = useDispatch();
 
-  console.log(themeId);
-
   const change = (id: any) => {
     dispatch(changeThemeId(id));
   };

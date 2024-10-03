@@ -6,15 +6,6 @@ import SuperPagination from "./common/c9-SuperPagination/SuperPagination";
 import { useSearchParams } from "react-router-dom";
 import SuperSort from "./common/c10-SuperSort/SuperSort";
 
-/*
- * 1 - дописать SuperPagination
- * 2 - дописать SuperSort
- * 3 - проверить pureChange тестами
- * 3 - дописать sendQuery, onChangePagination, onChangeSort в HW15
- * 4 - сделать стили в соответствии с дизайном
- * 5 - добавить HW15 в HW5/pages/JuniorPlus
- * */
-
 type TechType = {
   id: number;
   tech: string;
@@ -50,28 +41,26 @@ const HW15 = () => {
   const sendQuery = (params: any) => {
     setLoading(true);
     getTechs(params).then((res) => {
-      // делает студент
-      // сохранить пришедшие данные
-      //
+      if (res?.data) {
+        setTechs(res.data.techs);
+        setTotalCount(res.data.totalCount);
+      }
+      setLoading(false);
     });
   };
 
   const onChangePagination = (newPage: number, newCount: number) => {
-    // делает студент
-    // setPage(
-    // setCount(
-    // sendQuery(
-    // setSearchParams(
-    //
+    setPage(newPage);
+    setCount(newCount);
+    sendQuery({ page: newPage, count: newCount, sort });
+    setSearchParams({ page: newPage.toString(), count: newCount.toString() });
   };
 
   const onChangeSort = (newSort: string) => {
-    // делает студент
-    // setSort(
-    // setPage(1) // при сортировке сбрасывать на 1 страницу
-    // sendQuery(
-    // setSearchParams(
-    //
+    setSort(newSort);
+    setPage(1); // сбрасываем на 1 страницу
+    sendQuery({ page: 1, count, sort: newSort });
+    setSearchParams({ page: "1", count: count.toString(), sort: newSort });
   };
 
   useEffect(() => {
