@@ -33,7 +33,6 @@ const HW14 = () => {
   const sendQuery = (value: string) => {
     setLoading(true);
     getTechs(value).then((res) => {
-      console.log(res);
       if (res?.data.techs) {
         setTechs(res.data.techs); // Сохраняем данные
       }

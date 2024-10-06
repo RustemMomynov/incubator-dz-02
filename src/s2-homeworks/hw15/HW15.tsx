@@ -6,6 +6,13 @@ import SuperPagination from "./common/c9-SuperPagination/SuperPagination";
 import { useSearchParams } from "react-router-dom";
 import SuperSort from "./common/c10-SuperSort/SuperSort";
 
+/*
+
+ * 3 - дописать sendQuery, onChangePagination, onChangeSort в HW15
+ * 4 - сделать стили в соответствии с дизайном
+ * 5 - добавить HW15 в HW5/pages/JuniorPlus
+ * */
+
 type TechType = {
   id: number;
   tech: string;
@@ -38,34 +45,39 @@ const HW15 = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [techs, setTechs] = useState<TechType[]>([]);
 
-  const sendQuery = (params: any) => {
+  const sendQuery = (params: ParamsType) => {
     setLoading(true);
-    getTechs(params).then((res) => {
-      if (res?.data) {
-        setTechs(res.data.techs);
-        setTotalCount(res.data.totalCount);
-      }
-      setLoading(false);
-    });
+    getTechs(params)
+      .then((res: any) => {
+        if (res && res.data) {
+          setTechs(res.data.techs); // Сохраняем пришедшие данные
+          setTotalCount(res.data.totalCount); // Сохраняем общее количество
+        }
+      })
+      .finally(() => {
+        setLoading(false); // Убираем индикатор загрузки
+      });
   };
 
   const onChangePagination = (newPage: number, newCount: number) => {
+    // делает студент
     setPage(newPage);
     setCount(newCount);
-    sendQuery({ page: newPage, count: newCount, sort });
+    sendQuery({ count: newCount, page: newPage, sort: sort });
     setSearchParams({ page: newPage.toString(), count: newCount.toString() });
   };
 
   const onChangeSort = (newSort: string) => {
+    // делает студент
     setSort(newSort);
-    setPage(1); // сбрасываем на 1 страницу
-    sendQuery({ page: 1, count, sort: newSort });
+    setPage(1);
+    sendQuery({ count, page: 1, sort: newSort });
     setSearchParams({ page: "1", count: count.toString(), sort: newSort });
   };
 
   useEffect(() => {
     const params = Object.fromEntries(searchParams);
-    sendQuery({ page: params.page, count: params.count });
+    sendQuery({ page: +params.page, count: +params.count, sort });
     setPage(+params.page || 1);
     setCount(+params.count || 4);
   }, []);
