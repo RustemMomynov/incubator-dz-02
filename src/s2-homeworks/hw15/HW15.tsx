@@ -21,8 +21,8 @@ type TechType = {
 
 type ParamsType = {
   sort: string;
-  page: number;
-  count: number;
+  page: number | string;
+  count: number | string;
 };
 
 const getTechs = (params: ParamsType) => {
@@ -76,7 +76,7 @@ const HW15 = () => {
 
   useEffect(() => {
     const params = Object.fromEntries(searchParams);
-    sendQuery({ page: +params.page, count: +params.count, sort });
+    sendQuery({ page: params.page, count: params.count, sort: params.sort });
     setPage(+params.page || 1);
     setCount(+params.count || 4);
   }, []);
