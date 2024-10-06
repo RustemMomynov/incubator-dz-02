@@ -30,7 +30,14 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = ({
   };
 
   return (
-    <div className={s.pagination}>
+    <div
+      className={s.pagination}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: "20px",
+      }}
+    >
       <Pagination
         id={id + "-pagination"}
         sx={
