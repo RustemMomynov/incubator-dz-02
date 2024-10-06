@@ -112,13 +112,13 @@ const HW15 = () => {
           onChange={onChangePagination}
         />
 
-        <div className={s.rowHeader}>
+        <div className={s.rowHeader} style={{ fontSize: "20px" }}>
           <div className={s.techHeader}>
             tech
             <SuperSort sort={sort} value={"tech"} onChange={onChangeSort} />
           </div>
 
-          <div className={s.developerHeader}>
+          <div className={s.developerHeader} style={{ fontSize: "20px" }}>
             developer
             <SuperSort
               sort={sort}
